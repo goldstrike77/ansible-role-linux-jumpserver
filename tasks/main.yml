@@ -1,0 +1,27 @@
+---
+#- name: Include tasks for specific OS
+#  include: '{{ ansible_os_family }}.yml'
+
+- name: Configure the JumpServer firewall
+  include: 'firewall.yml'
+
+- name: Create the Python virtual environment
+  pip:
+    name: '{{ item }}'
+    state: 'forcereinstall'
+    virtualenv_command: '/bin/virtualenv-3'
+    virtualenv_python: '/bin/python3'
+    virtualenv: '/opt/py3'
+    extra_args: -i https://mirrors.aliyun.com/pypi/simple/
+  loop:
+    - 'pip'
+    - 'setuptools'
+
+- name: Core operation
+  include: 'jumpserver.yml'
+
+- name: Coco operation
+  include: 'coco.yml'
+
+- name: Luna operation
+  include: 'luna.yml'

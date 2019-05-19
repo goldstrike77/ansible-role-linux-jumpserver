@@ -1,0 +1,16 @@
+[Unit]
+Description=coco
+After=network.target jms.service
+
+[Service]
+Type=forking
+PIDFile={{ jumpserver_path }}/coco/coco.pid
+Environment="PATH={{ jumpserver_path }}/py3/bin"
+ExecStart={{ jumpserver_path }}/coco/cocod start -d
+ExecReload=
+ExecStop={{ jumpserver_path }}/coco/cocod stop
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,20 @@
+---
+- name: Install JumpServer
+  unarchive:
+    src: '{{ jumpserver_soft_url }}/jumpserver/archive/{{ jumpserver_version }}.tar.gz'
+    dest: '{{ jumpserver_path }}'
+    remote_src: 'yes'
+    validate_certs: 'no'
+  register: jms_update
+  until: jms_update is succeeded
+  retries: 3
+  delay: 5
+
+- name: Install JumpServer dependence python package
+  pip:
+    requirements: '{{ jumpserver_path }}/jumpserver-{{ jumpserver_version }}/requirements/requirements.txt'
+    state: 'present'
+    virtualenv_command: '/bin/virtualenv-3'
+    virtualenv_python: '/bin/python3'
+    virtualenv: '/opt/py3'
+    extra_args: '-i https://mirrors.aliyun.com/pypi/simple/'

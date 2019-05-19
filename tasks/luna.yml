@@ -1,0 +1,11 @@
+---
+- name: Install Luna
+  unarchive:
+    src: '{{ jumpserver_soft_url }}/luna/releases/download/{{ jumpserver_version }}/luna.tar.gz'
+    dest: '{{ jumpserver_path }}'
+    remote_src: 'yes'
+    validate_certs: 'no'
+  register: luna_update
+  until: luna_update is succeeded
+  retries: 3
+  delay: 5

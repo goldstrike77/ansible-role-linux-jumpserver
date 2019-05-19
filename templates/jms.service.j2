@@ -1,0 +1,16 @@
+[Unit]
+Description=jms
+After=network.target mysqld.service redis.service
+Wants=mysqld.service redis.service
+
+[Service]
+Type=forking
+Environment="PATH={{ jumpserver_path }}/py3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
+ExecStart={{ jumpserver_path }}/jumpserver/jms start all -d
+ExecReload=
+ExecStop={{ jumpserver_path }}/jumpserver/jms stop
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

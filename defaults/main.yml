@@ -1,0 +1,22 @@
+---
+# General parameters #
+jumpserver_is_install: false # A boolean value, whether install the JumpServer.
+jumpserver_version: '1.4.10'
+jumpserver_path: '/data'
+
+# Listen port #
+jumpserver_port_arg:
+  server: '18080'
+  coco_httpd: '5000'
+  coco_sshd: '2222'
+
+# NGinx parameters #
+jumpserver_ngx_dept: true # A boolean value, whether proxy web interface and API traffic using NGinx.
+jumpserver_ngx_domain: 'jump.example.com' # Defines domain name.
+jumpserver_ngx_version: 'standard' # extras or standard
+jumpserver_ngx_port_http: '80' # NGinx HTTP listen port.
+jumpserver_ngx_port_https: '443' # NGinx HTTPs listen port.
+
+# Tomcat parameters #
+jumpserver_tomcat_version: '8.5.40'
+jumpserver_tomcat_port_http: '8080'

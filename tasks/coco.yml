@@ -1,0 +1,20 @@
+---
+- name: Install Coco
+  unarchive:
+    src: '{{ jumpserver_soft_url }}/coco/archive/{{ jumpserver_version }}.tar.gz'
+    dest: '{{ jumpserver_path }}'
+    remote_src: 'yes'
+    validate_certs: 'no'
+  register: coco_update
+  until: coco_update is succeeded
+  retries: 3
+  delay: 5
+
+- name: Install Coco dependence python package
+  pip:
+    requirements: '{{ jumpserver_path }}/coco-{{ jumpserver_version }}/requirements/requirements.txt'
+    state: 'present'
+    virtualenv_command: '/bin/virtualenv-3'
+    virtualenv_python: '/bin/python3'
+    virtualenv: '/opt/py3'
+    extra_args: '-i https://mirrors.aliyun.com/pypi/simple/'
