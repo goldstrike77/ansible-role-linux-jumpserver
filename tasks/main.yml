@@ -1,6 +1,6 @@
 ---
-#- name: Include tasks for specific OS
-#  include: '{{ ansible_os_family }}.yml'
+- name: Include tasks for specific OS
+  include: '{{ ansible_os_family }}.yml'
 
 - name: Configure the JumpServer firewall
   include: 'firewall.yml'
