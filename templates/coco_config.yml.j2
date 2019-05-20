@@ -1,5 +1,5 @@
 # 项目名称, 会用来向Jumpserver注册, 识别而已, 不能重复
-NAME: [Coco]{{ ansible_fqdn | upper }}
+NAME: {{ ansible_fqdn | upper }}
 
 # Jumpserver项目的url, api请求注册会使用
 CORE_HOST: http://127.0.0.1:{{ jumpserver_port_arg.server }}

@@ -24,8 +24,8 @@
 - name: Core operation
   include: 'jumpserver.yml'
 
-- name: Coco operation
-  include: 'coco.yml'
-
 - name: Luna operation
   include: 'luna.yml'
+
+- name: Coco operation
+  include: 'coco.yml'
