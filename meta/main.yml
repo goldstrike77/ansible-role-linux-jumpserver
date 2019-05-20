@@ -55,11 +55,36 @@ galaxy_info:
 dependencies:
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,
   # if you add dependencies to this list.
+  - role: 'ansible-role-linux-tomcat'
+    vars:
+      tomcat_version: '{{ jumpserver_tomcat_version }}'
+      tomcat_port_http: '{{ jumpserver_tomcat_port_http }}'
+      tomcat_path: '{{ jumpserver_tomcat_path }}'
+      tomcat_disable_ipv6: '{{ jumpserver_tomcat_disable_ipv6 | bool | to_json }}'
+      tomcat_jvm_metaspace: '{{ jumpserver_tomcat_jvm_metaspace }}'
+      tomcat_jvm_xmn: '{{ jumpserver_tomcat_jvm_xmn }}'
+      tomcat_jvm_xmx: '{{  jumpserver_tomcat_jvm_xmx }}'
+      tomcat_custom_arg: '{{ jumpserver_tomcat_custom_arg }}'
+    when: jumpserver_tomcat_dept
+  - role: 'ansible-role-linux-mysql'
+    vars:
+      mysql_releases: 'Community'
+      mysql_sa_pass: '{{ jumpserver_mysql_sa_pass }}'
+      mysql_system_type: 'small'
+      mysql_version: '57'
+      mysql_path: '{{ jumpserver_mysql_path }}'
+      mysql_port_mysqld: '{{ jumpserver_mysql_port_mysqld }}'
+      mysql_mailto: '{{ jumpserver_mysql_mailto }}'
+      mysql_backupset_arg: '{{ jumpserver_mysql_backupset_arg }}'
+      mysql_bu_dbs_arg: '{{ jumpserver_mysql_bu_dbs_arg }}'
+    when: jumpserver_mysql_dept
   - role: 'ansible-role-linux-nginx'
     vars:
       ngx_version: '{{ jumpserver_ngx_version }}'
       ngx_port_http: '{{ jumpserver_ngx_port_http }}'
       ngx_port_https: '{{ jumpserver_ngx_port_https }}'
+      ngx_site_path: '{{ jumpserver_ngx_site_path }}'
+      ngx_logs_path: '{{ jumpserver_ngx_logs_path }}'
       ngx_allow_methods:
         - 'POST'
         - 'PUT'

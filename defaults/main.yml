@@ -3,6 +3,8 @@
 jumpserver_is_install: false # A boolean value, whether install the JumpServer.
 jumpserver_version: '1.4.10'
 jumpserver_path: '/data'
+jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU' # [cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 50]
+jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP' # [cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 16]
 
 # Listen port #
 jumpserver_port_arg:
@@ -10,13 +12,44 @@ jumpserver_port_arg:
   coco_httpd: '5000'
   coco_sshd: '2222'
 
+# MySQL parameters #
+jumpserver_mysql_dept: true # A boolean value, whether installs MySQL.
+jumpserver_mysql_sa_pass: 'password' # MySQL root account password.
+jumpserver_mysql_version: '57' # Specify the MySQL version.
+jumpserver_mysql_path: '{{ jumpserver_path }}' # Specify the MySQL data directory.
+jumpserver_mysql_port_mysqld: '3306' # MySQL instance listen port.
+jumpserver_mysql_mailto: 'somebody@example.com' # MySQL report mail recipient.
+jumpserver_mysql_backupset_arg:
+  life: '604800' # Lifetime of the latest full backup in seconds.
+  keep: '2' # The number of full backups (and its incrementals) to keep.
+  encryptkey: 'eMEVKiBd0HwByKfqv52EE8rmMMa2zg1i' # BackupSet encryption key, Generate by [openssl rand -base64 24].
+jumpserver_mysql_bu_dbs_arg:
+  - dbs: 'jumpserver'
+    user: 'jumpserver'
+    host: '127.0.0.1'
+    pass: 'password'
+    priv: 'ALL'
+
 # NGinx parameters #
 jumpserver_ngx_dept: true # A boolean value, whether proxy web interface and API traffic using NGinx.
+jumpserver_ngx_site_path: '/{{ jumpserver_path }}/nginx_site' # Specify the NGinx site directory.
+jumpserver_ngx_logs_path: '/{{ jumpserver_path }}/nginx_logs' # Specify the NGinx logs directory.
 jumpserver_ngx_domain: 'jump.example.com' # Defines domain name.
 jumpserver_ngx_version: 'standard' # extras or standard
 jumpserver_ngx_port_http: '80' # NGinx HTTP listen port.
 jumpserver_ngx_port_https: '443' # NGinx HTTPs listen port.
 
 # Tomcat parameters #
+jumpserver_tomcat_dept: true # A boolean value, whether installs Apache Tomcat.
 jumpserver_tomcat_version: '8.5.40'
-jumpserver_tomcat_port_http: '8080'
+jumpserver_tomcat_port_http: '8080' # Tomcat HTTP connectors
+jumpserver_tomcat_path: '{{ jumpserver_path }}' # Specify the Tomcat working directory
+jumpserver_tomcat_disable_ipv6: true # Deny IPv6 socket connect If IPv6 is available on the operating system
+jumpserver_tomcat_jvm_metaspace: '256' # Size of the metaspace in MB.
+jumpserver_tomcat_jvm_xmn: '400' # Size of the heap for the young generation in MB.
+jumpserver_tomcat_jvm_xmx: '2048' # Size of the heap in MB.
+jumpserver_tomcat_custom_arg:
+  JUMPSERVER_SERVER: 'http://127.0.0.1:{{ jumpserver_port_arg.server }}'
+  JUMPSERVER_KEY_DIR: '/config/guacamole/keys'
+  GUACAMOLE_HOME: '/config/guacamole'
+  BOOTSTRAP_TOKEN: '{{ jumpserver_bootstrap_token }}'
