@@ -1,0 +1,16 @@
+[Unit]
+Description=Guacamole proxy daemon
+Documentation=man:guacd(8)
+After=network.target
+
+[Service]
+EnvironmentFile=-/etc/sysconfig/guacd
+Environment=HOME=/var/lib/guacd
+ExecStart=/usr/sbin/guacd -f $OPTS
+Restart=on-failure
+User=tomcat
+Group=tomcat
+
+[Install]
+WantedBy=multi-user.target
+

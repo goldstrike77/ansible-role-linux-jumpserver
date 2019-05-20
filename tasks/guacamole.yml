@@ -16,11 +16,20 @@
     state: 'absent'
   loop: '{{ guacamole_dependent_packages }}'
 
+- name: Guacd systemd service file transfer
+  copy:
+    src: 'guacd.service'
+    dest: '/lib/systemd/system/guacd.service'
+    owner: 'root'
+    group: 'root'
+    mode: 0644
+
 - name: Ensure Guacd service is enabled
-  service:
+  systemd:
     name: 'guacd'
     enabled: 'yes'
     state: 'started'
+    daemon_reload: 'yes'
 
 - name: ssh-forward package transfer
   unarchive:
