@@ -12,10 +12,16 @@ jumpserver_port_arg:
   coco_httpd: '5000'
   coco_sshd: '2222'
 
+# Redis parameters #
+jumpserver_redis_dept: true # A boolean value, whether installs Redis.
+jumpserver_redis_path: '{{ jumpserver_path }}' # Specify the Redis data directory.
+jumpserver_redis_requirepass: 'password' # Authorization clients password.
+jumpserver_redis_maxmemory: '128mb' # A memory usage limit to the specified amount in MB.
+jumpserver_redis_port: '6379' # Redis listen.
+
 # MySQL parameters #
 jumpserver_mysql_dept: true # A boolean value, whether installs MySQL.
 jumpserver_mysql_sa_pass: 'password' # MySQL root account password.
-jumpserver_mysql_version: '57' # Specify the MySQL version.
 jumpserver_mysql_path: '{{ jumpserver_path }}' # Specify the MySQL data directory.
 jumpserver_mysql_port_mysqld: '3306' # MySQL instance listen port.
 jumpserver_mysql_mailto: 'somebody@example.com' # MySQL report mail recipient.
@@ -38,10 +44,10 @@ jumpserver_ngx_domain: 'jump.example.com' # Defines domain name.
 jumpserver_ngx_version: 'standard' # extras or standard
 jumpserver_ngx_port_http: '80' # NGinx HTTP listen port.
 jumpserver_ngx_port_https: '443' # NGinx HTTPs listen port.
+jumpserver_ngx_client_max_body_size: '50m' # The maximum allowed size of the client request body.
 
 # Tomcat parameters #
 jumpserver_tomcat_dept: true # A boolean value, whether installs Apache Tomcat.
-jumpserver_tomcat_version: '8.5.40'
 jumpserver_tomcat_port_http: '8080' # Tomcat HTTP connectors
 jumpserver_tomcat_path: '{{ jumpserver_path }}' # Specify the Tomcat working directory
 jumpserver_tomcat_disable_ipv6: true # Deny IPv6 socket connect If IPv6 is available on the operating system
