@@ -16,6 +16,12 @@
     state: 'absent'
   loop: '{{ guacamole_dependent_packages }}'
 
+- name: Ensure Guacd service is enabled
+  service:
+    name: 'guacd'
+    enabled: 'yes'
+    state: 'started'
+
 - name: ssh-forward package transfer
   unarchive:
     src: 'ssh-forward.tar.gz'
