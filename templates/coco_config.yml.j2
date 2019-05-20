@@ -1,21 +1,21 @@
 # 项目名称, 会用来向Jumpserver注册, 识别而已, 不能重复
-# NAME: {{ Hostname }}
+NAME: [Coco]{{ ansible_fqdn | upper }}
 
 # Jumpserver项目的url, api请求注册会使用
-CORE_HOST: http://127.0.0.1:18080
+CORE_HOST: http://127.0.0.1:{{ jumpserver_port_arg.server }}
 
 # Bootstrap Token, 预共享秘钥, 用来注册coco使用的service account和terminal
 # 请和jumpserver 配置文件中保持一致，注册完成后可以删除
-BOOTSTRAP_TOKEN: shYPddIn5qLHsqfx
+BOOTSTRAP_TOKEN: {{ jumpserver_bootstrap_token }}
 
 # 启动时绑定的ip, 默认 0.0.0.0
-# BIND_HOST: 0.0.0.0
+BIND_HOST: 0.0.0.0
 
 # 监听的SSH端口号, 默认2222
-# SSHD_PORT: 2222
+SSHD_PORT: {{ jumpserver_port_arg.coco_sshd }}
 
 # 监听的HTTP/WS端口号，默认5000
-# HTTPD_PORT: 5000
+HTTPD_PORT: {{ jumpserver_port_arg.coco_httpd }}
 
 # 项目使用的ACCESS KEY, 默认会注册,并保存到 ACCESS_KEY_STORE中,
 # 如果有需求, 可以写到配置文件中, 格式 access_key_id:access_key_secret
@@ -41,7 +41,7 @@ LOG_LEVEL: INFO
 #   -
 
 # 和Jumpserver 保持心跳时间间隔
-# HEARTBEAT_INTERVAL: 5
+HEARTBEAT_INTERVAL: 30
 
 # Admin的名字，出问题会提示给用户
 # ADMINS: ''

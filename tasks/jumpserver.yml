@@ -16,5 +16,36 @@
     state: 'present'
     virtualenv_command: '/bin/virtualenv-3'
     virtualenv_python: '/bin/python3'
-    virtualenv: '/opt/py3'
+    virtualenv: '{{ jumpserver_env }}'
     extra_args: '-i https://mirrors.aliyun.com/pypi/simple/'
+  register: jms_dependence_update
+  until: jms_dependence_update is succeeded
+  retries: 3
+  delay: 5
+
+- name: JumpServer systemd service file transfer
+  template:
+    src: 'jms.service.j2'
+    dest: '/lib/systemd/system/jms.service'
+    owner: 'root'
+    group: 'root'
+    mode: 0644
+  register: jms_systemd_update
+
+- name: JumpServer configuration file transfer
+  template:
+    src: 'jms_config.yml.j2'
+    dest: '{{ jumpserver_path }}/jumpserver-{{ jumpserver_version }}/config.yml'
+    owner: 'root'
+    group: 'root'
+    mode: 0644
+  register: jms_conf_update
+  no_log: true
+
+- name: Enable JumpServer service
+  systemd:
+    name: 'jms.service'
+    enabled: 'yes'
+    state: 'restarted'
+    daemon_reload: 'yes'
+  when: jms_systemd_update is changed or jms_conf_update is changed

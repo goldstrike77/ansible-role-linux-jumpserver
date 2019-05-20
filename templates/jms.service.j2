@@ -5,10 +5,10 @@ Wants=mysqld.service redis.service
 
 [Service]
 Type=forking
-Environment="PATH={{ jumpserver_path }}/py3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
-ExecStart={{ jumpserver_path }}/jumpserver/jms start all -d
+Environment="PATH={{ jumpserver_env }}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
+ExecStart={{ jumpserver_path }}/jumpserver-{{ jumpserver_version }}/jms start all -d
 ExecReload=
-ExecStop={{ jumpserver_path }}/jumpserver/jms stop
+ExecStop={{ jumpserver_path }}/jumpserver-{{ jumpserver_version }}/jms stop
 Restart=always
 RestartSec=60
 

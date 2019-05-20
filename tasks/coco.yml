@@ -16,5 +16,36 @@
     state: 'present'
     virtualenv_command: '/bin/virtualenv-3'
     virtualenv_python: '/bin/python3'
-    virtualenv: '/opt/py3'
+    virtualenv: '{{ jumpserver_env }}'
     extra_args: '-i https://mirrors.aliyun.com/pypi/simple/'
+  register: coco_dependence_update
+  until: coco_dependence_update is succeeded
+  retries: 3
+  delay: 5
+
+- name: Coco systemd service file transfer
+  template:
+    src: 'coco.service.j2'
+    dest: '/lib/systemd/system/coco.service'
+    owner: 'root'
+    group: 'root'
+    mode: 0644
+  register: coco_systemd_update
+
+- name: Coco configuration file transfer
+  template:
+    src: 'coco_config.yml.j2'
+    dest: '{{ jumpserver_path }}/coco-{{ jumpserver_version }}/config.yml'
+    owner: 'root'
+    group: 'root'
+    mode: 0644
+  register: coco_conf_update
+  no_log: true
+
+- name: Enable Coco service
+  systemd:
+    name: 'coco.service'
+    enabled: 'yes'
+    state: 'restarted'
+    daemon_reload: 'yes'
+  when: coco_systemd_update is changed or coco_conf_update is changed

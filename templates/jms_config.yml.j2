@@ -1,25 +1,25 @@
 # SECURITY WARNING: keep the secret key used in production secret!
 # 加密秘钥 生产环境中请修改为随机字符串，请勿外泄, 可使用命令生成 
 # $ cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 49;echo
-SECRET_KEY: z73QY3g2QVGTt5a5FZj2ZSM6aiLSDkRXfFzIiOOOZ2KRgjJyk
+SECRET_KEY: {{ jumpserver_secret_key }}
 
 # SECURITY WARNING: keep the bootstrap token used in production secret!
 # 预共享Token coco和guacamole用来注册服务账号，不在使用原来的注册接受机制
-BOOTSTRAP_TOKEN: shYPddIn5qLHsqfx
+BOOTSTRAP_TOKEN: {{ jumpserver_bootstrap_token }}
 
 # Development env open this, when error occur display the full process track, Production disable it
 # DEBUG 模式 开启DEBUG后遇到错误时可以看到更多日志
-DEBUG: true
+DEBUG: false
 
 # DEBUG, INFO, WARNING, ERROR, CRITICAL can set. See https://docs.djangoproject.com/en/1.10/topics/logging/
 # 日志级别
-LOG_LEVEL: DEBUG
+LOG_LEVEL: INFO
 # LOG_DIR: 
 
 # Session expiration setting, Default 24 hour, Also set expired on on browser close
 # 浏览器Session过期时间，默认24小时, 也可以设置浏览器关闭则过期
 # SESSION_COOKIE_AGE: 86400
-# SESSION_EXPIRE_AT_BROWSER_CLOSE: false
+SESSION_EXPIRE_AT_BROWSER_CLOSE: true
 
 # Database setting, Support sqlite3, mysql, postgres ....
 # 数据库设置
@@ -33,23 +33,23 @@ LOG_LEVEL: DEBUG
 # MySQL or postgres setting like:
 # 使用Mysql作为数据库
 DB_ENGINE: mysql
-DB_HOST: 127.0.0.1
-DB_PORT: 3306
-DB_USER: jumpserver
-DB_PASSWORD: password 
-DB_NAME: jumpserver
+DB_HOST: {{ jumpserver_mysql_bu_dbs_arg[0].host }}
+DB_PORT: {{ jumpserver_mysql_port_mysqld }}
+DB_USER: {{ jumpserver_mysql_bu_dbs_arg[0].user }}
+DB_PASSWORD: {{ jumpserver_mysql_bu_dbs_arg[0].pass }}
+DB_NAME: {{ jumpserver_mysql_bu_dbs_arg[0].dbs }}
 
 # When Django start it will bind this host and port
 # ./manage.py runserver 127.0.0.1:8080
 # 运行时绑定端口
 HTTP_BIND_HOST: 0.0.0.0
-HTTP_LISTEN_PORT: 18080
+HTTP_LISTEN_PORT: {{ jumpserver_port_arg.server }}
 
 # Use Redis as broker for celery and web socket
 # Redis配置
 REDIS_HOST: 127.0.0.1
-REDIS_PORT: 6379
-REDIS_PASSWORD: password 
+REDIS_PORT: {{ jumpserver_redis_port }}
+REDIS_PASSWORD: {{ jumpserver_redis_requirepass }}
 # REDIS_DB_CELERY: 3
 # REDIS_DB_CACHE: 4
 

@@ -2,6 +2,7 @@
 # General parameters #
 jumpserver_is_install: false # A boolean value, whether install the JumpServer.
 jumpserver_version: '1.4.10'
+jumpserver_env: '/opt/py3'
 jumpserver_path: '/data'
 jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU' # [cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 50]
 jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP' # [cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 16]
@@ -16,7 +17,7 @@ jumpserver_port_arg:
 jumpserver_redis_dept: true # A boolean value, whether installs Redis.
 jumpserver_redis_path: '{{ jumpserver_path }}' # Specify the Redis data directory.
 jumpserver_redis_requirepass: 'password' # Authorization clients password.
-jumpserver_redis_maxmemory: '128mb' # A memory usage limit to the specified amount in MB.
+jumpserver_redis_maxmemory: '128' # A memory usage limit to the specified amount in MB.
 jumpserver_redis_port: '6379' # Redis listen.
 
 # MySQL parameters #

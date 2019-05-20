@@ -4,11 +4,11 @@ After=network.target jms.service
 
 [Service]
 Type=forking
-PIDFile={{ jumpserver_path }}/coco/coco.pid
-Environment="PATH={{ jumpserver_path }}/py3/bin"
-ExecStart={{ jumpserver_path }}/coco/cocod start -d
+PIDFile={{ jumpserver_path }}/coco-{{ jumpserver_version }}/coco.pid
+Environment="PATH={{ jumpserver_env }}/bin"
+ExecStart={{ jumpserver_path }}/coco-{{ jumpserver_version }}/cocod start -d
 ExecReload=
-ExecStop={{ jumpserver_path }}/coco/cocod stop
+ExecStop={{ jumpserver_path }}/coco-{{ jumpserver_version }}/cocod stop
 Restart=always
 RestartSec=60
 
