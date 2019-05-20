@@ -1,0 +1,41 @@
+---
+- name: Guacamole dependents package transfer
+  copy:
+    src: 'RPMs/{{ item }}'
+    dest: '/tmp/{{ item }}'
+  loop: '{{ guacamole_dependent_packages }}'
+
+- name: Guacamole dependents package installation
+  yum:
+    name: '/tmp/{{ ",/tmp/".join(vars["guacamole_dependent_packages"]) }}'
+    state: 'present'
+
+- name: Guacamole dependents package cleanup
+  file:
+    path: '/tmp/{{ item }}'
+    state: 'absent'
+  loop: '{{ guacamole_dependent_packages }}'
+
+- name: ssh-forward package transfer
+  unarchive:
+    src: 'ssh-forward.tar.gz'
+    dest: '/bin/'
+    owner: 'root'
+    group: 'root'
+    mode: '755'
+
+- name: Guacamole configuration transfer
+  unarchive:
+    src: 'config.tar.gz'
+    dest: '/'
+    owner: 'tomcat'
+    group: 'tomcat'
+    mode: '0755'
+
+- name: Guacamole Web appcation deploy
+  copy:
+    src: 'ROOT.war'
+    dest: '{{ jumpserver_tomcat_path }}/tomcat/webapps'
+    owner: 'tomcat'
+    group: 'tomcat'
+    mode: '0644'

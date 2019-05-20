@@ -29,3 +29,6 @@
 
 - name: Coco operation
   include: 'coco.yml'
+
+- name: Guacamole operation
+  include: 'guacamole.yml'

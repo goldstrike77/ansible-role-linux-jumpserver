@@ -50,3 +50,14 @@ jumpserver_dependent_packages:
   - 'telnet'
   - 'tk-devel'
   - 'uuid-devel'
+
+guacamole_dependent_packages:
+  - 'freerdp1.2-1.2.0-12.el7.x86_64.rpm'
+  - 'guacamole-server-0.9.14-2.el7.x86_64.rpm'
+  - 'guacd-0.9.14-2.el7.x86_64.rpm'
+  - 'libguac-0.9.14-2.el7.x86_64.rpm'
+  - 'libguac-client-rdp-0.9.14-2.el7.x86_64.rpm'
+  - 'libguac-client-ssh-0.9.14-2.el7.x86_64.rpm'
+  - 'libguac-client-telnet-0.9.14-2.el7.x86_64.rpm'
+  - 'libguac-client-vnc-0.9.14-2.el7.x86_64.rpm'
+  - 'libguac-devel-0.9.14-2.el7.x86_64.rpm'
