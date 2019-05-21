@@ -1,7 +1,7 @@
 ---
 # General parameters #
 jumpserver_is_install: false # A boolean value, whether install the JumpServer.
-jumpserver_selinux: 'false' # SELinux security policy.
+jumpserver_selinux: false # SELinux security policy.
 jumpserver_version: '1.4.10'  # Specify the JumpServer version.
 jumpserver_env: '/opt/py3' # Path to Python virtualenv directory to install into. 
 jumpserver_path: '/data' # This directory is used to store JumpServer server state.
