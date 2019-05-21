@@ -34,7 +34,7 @@ This role will work on the following operating systems:
 
   * CentOS 7
 
-### MongoDB versions
+### JumpServer versions
 
 The following list of supported the JumpServer releases:
 
@@ -49,8 +49,8 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_version`: Specify the JumpServer version.
 * `jumpserver_env`: Path to Python virtualenv directory to install into. 
 * `jumpserver_path`: This directory is used to store JumpServer server state.
-* `jumpserver_secret_key`: Secret key
-* `jumpserver_bootstrap_token1: Bootstrap token
+* `jumpserver_secret_key`: Secret key.
+* `jumpserver_bootstrap_token1: Bootstrap token.
 
 ##### Listen port
 * `jumpserver_port_arg.server`: JumpServer WEB / API network communication ports.
