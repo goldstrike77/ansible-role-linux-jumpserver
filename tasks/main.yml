@@ -2,6 +2,9 @@
 - name: Include tasks for specific OS
   include: '{{ ansible_os_family }}.yml'
 
+- name: Straight to getenforce selinux status
+  include: 'selinux.yml'
+
 - name: Configure the JumpServer firewall
   include: 'firewall.yml'
 
@@ -32,3 +35,9 @@
 
 - name: Coco operation
   include: 'coco.yml'
+
+- name: Ensure MTA service is enabled
+  systemd:
+    name: 'postfix.service'
+    enabled: 'yes'
+    state: 'started'

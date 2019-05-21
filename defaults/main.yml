@@ -1,24 +1,25 @@
 ---
 # General parameters #
 jumpserver_is_install: false # A boolean value, whether install the JumpServer.
-jumpserver_version: '1.4.10'
-jumpserver_env: '/opt/py3'
-jumpserver_path: '/data'
-jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU' # [cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 50]
-jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP' # [cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 16]
+jumpserver_selinux: 'false' # SELinux security policy.
+jumpserver_version: '1.4.10'  # Specify the JumpServer version.
+jumpserver_env: '/opt/py3' # Path to Python virtualenv directory to install into. 
+jumpserver_path: '/data' # This directory is used to store JumpServer server state.
+jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU' # Secret key[cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 50]
+jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP' # Bootstrap token [cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 16]
 
 # Listen port #
 jumpserver_port_arg:
-  server: '18080'
-  coco_httpd: '5000'
-  coco_sshd: '2222'
+  server: '18080' # JumpServer WEB / API network communication ports.
+  coco_httpd: '5000' # Coco HTTPD network communication ports.
+  coco_sshd: '2222' # Coco SSHD network communication ports.
 
 # Redis parameters #
 jumpserver_redis_dept: true # A boolean value, whether installs Redis.
 jumpserver_redis_path: '{{ jumpserver_path }}' # Specify the Redis data directory.
 jumpserver_redis_requirepass: 'password' # Authorization clients password.
 jumpserver_redis_maxmemory: '128' # A memory usage limit to the specified amount in MB.
-jumpserver_redis_port: '6379' # Redis listen.
+jumpserver_redis_port: '6379' # Redis listen port.
 
 # MySQL parameters #
 jumpserver_mysql_dept: true # A boolean value, whether installs MySQL.
@@ -30,7 +31,7 @@ jumpserver_mysql_backupset_arg:
   life: '604800' # Lifetime of the latest full backup in seconds.
   keep: '2' # The number of full backups (and its incrementals) to keep.
   encryptkey: 'eMEVKiBd0HwByKfqv52EE8rmMMa2zg1i' # BackupSet encryption key, Generate by [openssl rand -base64 24].
-jumpserver_mysql_bu_dbs_arg:
+jumpserver_mysql_bu_dbs_arg: # JumpServer Database Variables.
   - dbs: 'jumpserver'
     user: 'jumpserver'
     host: '127.0.0.1'
@@ -55,7 +56,7 @@ jumpserver_tomcat_disable_ipv6: true # Deny IPv6 socket connect If IPv6 is avail
 jumpserver_tomcat_jvm_metaspace: '256' # Size of the metaspace in MB.
 jumpserver_tomcat_jvm_xmn: '400' # Size of the heap for the young generation in MB.
 jumpserver_tomcat_jvm_xmx: '2048' # Size of the heap in MB.
-jumpserver_tomcat_custom_arg:
+jumpserver_tomcat_custom_arg: # Tomcat Custom Variables.
   JUMPSERVER_SERVER: 'http://127.0.0.1:{{ jumpserver_port_arg.server }}'
   JUMPSERVER_KEY_DIR: '/config/guacamole/keys'
   GUACAMOLE_HOME: '/config/guacamole'
