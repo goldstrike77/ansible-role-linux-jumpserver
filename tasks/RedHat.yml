@@ -28,4 +28,3 @@
     validate_certs: 'no'
     disable_gpg_check: 'yes'
     update_cache: 'yes'
-#  loop: '{{ jumpserver_dependent_packages }}'
