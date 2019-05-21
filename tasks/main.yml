@@ -36,6 +36,17 @@
 - name: Coco operation
   include: 'coco.yml'
 
+- name: Modify Admin Password
+  shell:
+    cmd: |
+      {{ jumpserver_env }}/bin/python3 /data/jumpserver-{{ jumpserver_version }}/apps/manage.py shell <<EOF
+      from users.models import User
+      u = User.objects.get(username='admin')
+      u.reset_password('{{ jumpserver_admin_password | default('admin') }}')
+      u.save()
+      EOF
+  no_log: true
+
 - name: Ensure MTA service is enabled
   systemd:
     name: 'postfix.service'

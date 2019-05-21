@@ -5,6 +5,7 @@ jumpserver_selinux: false # SELinux security policy.
 jumpserver_version: '1.4.10'  # Specify the JumpServer version.
 jumpserver_env: '/opt/py3' # Path to Python virtualenv directory to install into. 
 jumpserver_path: '/data' # This directory is used to store JumpServer server state.
+jumpserver_admin_password: 'PsWGa8CbStBw' # A password for admin user.
 jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU' # Secret key[cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 50]
 jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP' # Bootstrap token [cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 16]
 

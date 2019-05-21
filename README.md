@@ -49,6 +49,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_version`: Specify the JumpServer version.
 * `jumpserver_env`: Path to Python virtualenv directory to install into. 
 * `jumpserver_path`: This directory is used to store JumpServer server state.
+* `jumpserver_admin_password`: Password for admin user.
 * `jumpserver_secret_key`: Secret key.
 * `jumpserver_bootstrap_token1: Bootstrap token.
 
@@ -122,6 +123,7 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_version: '1.4.10'
     jumpserver_env: '/opt/py3'
     jumpserver_path: '/data'
+    jumpserver_admin_password: 'PsWGa8CbStBw'
     jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU'
     jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP'
     jumpserver_port_arg:
