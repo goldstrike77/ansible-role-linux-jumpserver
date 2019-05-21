@@ -1,0 +1,15 @@
+- name: ansible-role-linux-redis
+  src: git+https://github.com/goldstrike77/ansible-role-linux-redis
+  version: origin/master
+
+- name: ansible-role-linux-mysql
+  src: git+https://github.com/goldstrike77/ansible-role-linux-mysql
+  version: origin/master
+
+- name: ansible-role-linux-tomcat
+  src: git+https://github.com/goldstrike77/ansible-role-linux-tomcat
+  version: origin/master
+
+- name: ansible-role-linux-nginx
+  src: git+https://github.com/goldstrike77/ansible-role-linux-nginx
+  version: origin/master
