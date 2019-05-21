@@ -86,7 +86,7 @@ dependencies:
     when: jumpserver_mysql_dept
   - role: 'ansible-role-linux-nginx'
     vars:
-      ngx_version: '{{ jumpserver_ngx_version }}'
+      ngx_version: 'standard'
       ngx_port_http: '{{ jumpserver_ngx_port_http }}'
       ngx_port_https: '{{ jumpserver_ngx_port_https }}'
       ngx_site_path: '{{ jumpserver_ngx_site_path }}'

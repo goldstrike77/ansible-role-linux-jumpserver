@@ -43,7 +43,6 @@ jumpserver_ngx_dept: true # A boolean value, whether proxy web interface and API
 jumpserver_ngx_site_path: '/{{ jumpserver_path }}/nginx_site' # Specify the NGinx site directory.
 jumpserver_ngx_logs_path: '/{{ jumpserver_path }}/nginx_logs' # Specify the NGinx logs directory.
 jumpserver_ngx_domain: 'jump.example.com' # Defines domain name.
-jumpserver_ngx_version: 'standard' # extras or standard
 jumpserver_ngx_port_http: '80' # NGinx HTTP listen port.
 jumpserver_ngx_port_https: '443' # NGinx HTTPs listen port.
 jumpserver_ngx_client_max_body_size: '50m' # The maximum allowed size of the client request body.
