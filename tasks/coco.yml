@@ -17,7 +17,7 @@
     virtualenv_command: '/bin/virtualenv-3'
     virtualenv_python: '/bin/python3'
     virtualenv: '{{ jumpserver_env }}'
-    extra_args: '-i https://mirrors.aliyun.com/pypi/simple/'
+    extra_args: '-i {{ jumpserver_pypi_url }}'
   register: coco_dependence_update
   until: coco_dependence_update is succeeded
   retries: 3

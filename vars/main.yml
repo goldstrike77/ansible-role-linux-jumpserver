@@ -1,2 +1,3 @@
 ---
 jumpserver_soft_url: 'http://github.com/jumpserver'
+jumpserver_pypi_url: 'https://mirrors.aliyun.com/pypi/simple/'
