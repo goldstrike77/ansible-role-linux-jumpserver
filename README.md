@@ -51,7 +51,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_path`: This directory is used to store JumpServer server state.
 * `jumpserver_admin_password`: Password for admin user.
 * `jumpserver_secret_key`: Secret key.
-* `jumpserver_bootstrap_token1: Bootstrap token.
+* `jumpserver_bootstrap_token`: Bootstrap token.
 
 ##### Listen port
 * `jumpserver_port_arg.server`: JumpServer WEB / API network communication ports.
@@ -123,7 +123,7 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_version: '1.4.10'
     jumpserver_env: '/opt/py3'
     jumpserver_path: '/data'
-    jumpserver_admin_password: 'PsWGa8CbStBw'
+    jumpserver_admin_password: 'changeme'
     jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU'
     jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP'
     jumpserver_port_arg:
@@ -132,11 +132,11 @@ You can also use the group_vars or the host_vars files for setting the variables
       coco_sshd: '2222'
     jumpserver_redis_dept: true
     jumpserver_redis_path: '{{ jumpserver_path }}'
-    jumpserver_redis_requirepass: 'password'
+    jumpserver_redis_requirepass: 'changeme'
     jumpserver_redis_maxmemory: '128'
     jumpserver_redis_port: '6379'
     jumpserver_mysql_dept: true
-    jumpserver_mysql_sa_pass: 'password'
+    jumpserver_mysql_sa_pass: 'changeme'
     jumpserver_mysql_path: '{{ jumpserver_path }}'
     jumpserver_mysql_port_mysqld: '3306'
     jumpserver_mysql_mailto: 'somebody@example.com'
@@ -148,7 +148,7 @@ You can also use the group_vars or the host_vars files for setting the variables
       - dbs: 'jumpserver'
         user: 'jumpserver'
         host: '127.0.0.1'
-        pass: 'password'
+        pass: 'changeme'
         priv: 'ALL'
     jumpserver_ngx_dept: true
     jumpserver_ngx_site_path: '/{{ jumpserver_path }}/nginx_site'
