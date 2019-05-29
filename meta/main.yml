@@ -86,9 +86,15 @@ dependencies:
     when: jumpserver_mysql_dept
   - role: 'ansible-role-linux-nginx'
     vars:
-      ngx_version: 'standard'
+      ngx_block_agents: '{{ jumpserver_ngx_block_agents }}'
+      ngx_block_string: '{{ jumpserver_ngx_block_string }}'
+      ngx_compress: '{{ jumpserver_ngx_compress }}'
+      ngx_domain: '{{ jumpserver_ngx_domain }}'
+      ngx_pagespeed: '{{ jumpserver_ngx_pagespeed }}'
       ngx_port_http: '{{ jumpserver_ngx_port_http }}'
       ngx_port_https: '{{ jumpserver_ngx_port_https }}'
+      ngx_ssl_protocols: '{{ jumpserver_ngx_ssl_protocols }}'
+      ngx_version: '{{ jumpserver_ngx_version }}'
       ngx_site_path: '{{ jumpserver_ngx_site_path }}'
       ngx_logs_path: '{{ jumpserver_ngx_logs_path }}'
       ngx_client_max_body_size: '{{ jumpserver_ngx_client_max_body_size }}'

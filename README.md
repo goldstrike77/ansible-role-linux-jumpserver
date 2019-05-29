@@ -80,9 +80,15 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_ngx_dept`: A boolean value, whether proxy web interface and API traffic using NGinx.
 * `jumpserver_ngx_site_path`: Specify the NGinx site directory.
 * `jumpserver_ngx_logs_path`: Specify the NGinx logs directory.
+* `jumpserver_ngx_block_agents`: Enables or disables block unsafe User Agents.
+* `jumpserver_ngx_block_string`: Enables or disables block includes Exploits / File injections / Spam / SQL injections.
+* `jumpserver_ngx_compress`: Enables or disables compression.
 * `jumpserver_ngx_domain`: Defines domain name.
+* `jumpserver_ngx_pagespeed`: Enables or disables pagespeed modules.
 * `jumpserver_ngx_port_http`: NGinx HTTP listen port.
 * `jumpserver_ngx_port_https`: NGinx HTTPs listen port.
+* `jumpserver_ngx_ssl_protocols`: intermediate or modern, defines SSL protocol profile.
+* `jumpserver_ngx_version`: extras or standard
 * `jumpserver_ngx_client_max_body_size`: The maximum allowed size of the client request body.
 
 ##### Tomcat parameters
@@ -154,8 +160,15 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_ngx_site_path: '/{{ jumpserver_path }}/nginx_site'
     jumpserver_ngx_logs_path: '/{{ jumpserver_path }}/nginx_logs'
     jumpserver_ngx_domain: 'jump.example.com'
+    jumpserver_ngx_block_agents: false
+    jumpserver_ngx_block_string: false
+    jumpserver_ngx_compress: false
+    jumpserver_ngx_domain: 'jump.example.com'
+    jumpserver_ngx_pagespeed: false
     jumpserver_ngx_port_http: '80'
     jumpserver_ngx_port_https: '443'
+    jumpserver_ngx_ssl_protocols: 'modern'
+    jumpserver_ngx_version: 'extras'
     jumpserver_ngx_client_max_body_size: '50m'
     jumpserver_tomcat_dept: true
     jumpserver_tomcat_port_http: '8080'

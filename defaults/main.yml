@@ -43,9 +43,15 @@ jumpserver_mysql_bu_dbs_arg: # JumpServer Database Variables.
 jumpserver_ngx_dept: true # A boolean value, whether proxy web interface and API traffic using NGinx.
 jumpserver_ngx_site_path: '/{{ jumpserver_path }}/nginx_site' # Specify the NGinx site directory.
 jumpserver_ngx_logs_path: '/{{ jumpserver_path }}/nginx_logs' # Specify the NGinx logs directory.
+jumpserver_ngx_block_agents: false # Enables or disables block unsafe User Agents.
+jumpserver_ngx_block_string: false # Enables or disables block includes Exploits / File injections / Spam / SQL injections.
+jumpserver_ngx_compress: false # Enables or disables compression.
 jumpserver_ngx_domain: 'jump.example.com' # Defines domain name.
+jumpserver_ngx_pagespeed: false # Enables or disables pagespeed modules.
 jumpserver_ngx_port_http: '80' # NGinx HTTP listen port.
 jumpserver_ngx_port_https: '443' # NGinx HTTPs listen port.
+jumpserver_ngx_ssl_protocols: 'modern' # intermediate or modern, defines SSL protocol profile.
+jumpserver_ngx_version: 'extras' # extras or standard
 jumpserver_ngx_client_max_body_size: '50m' # The maximum allowed size of the client request body.
 
 # Tomcat parameters #
