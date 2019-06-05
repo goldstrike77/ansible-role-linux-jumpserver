@@ -25,6 +25,7 @@ jumpserver_redis_port: '6379' # Redis listen port.
 # MySQL parameters #
 jumpserver_mysql_dept: true # A boolean value, whether installs MySQL.
 jumpserver_mysql_sa_pass: 'password' # MySQL root account password.
+jumpserver_mysql_user_pass: 'password' # MySQL user account password.
 jumpserver_mysql_path: '{{ jumpserver_path }}' # Specify the MySQL data directory.
 jumpserver_mysql_port_mysqld: '3306' # MySQL instance listen port.
 jumpserver_mysql_mailto: 'somebody@example.com' # MySQL report mail recipient.
@@ -36,7 +37,7 @@ jumpserver_mysql_bu_dbs_arg: # JumpServer Database Variables.
   - dbs: 'jumpserver'
     user: 'jumpserver'
     host: '127.0.0.1'
-    pass: 'password'
+    pass: '{{ jumpserver_mysql_user_pass }}'
     priv: 'ALL'
 
 # NGinx parameters #

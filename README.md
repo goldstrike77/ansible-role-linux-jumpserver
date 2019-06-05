@@ -68,6 +68,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 ##### MySQL parameters
 * `jumpserver_mysql_dept`: A boolean value, whether installs MySQL.
 * `jumpserver_mysql_sa_pass`: MySQL root account password.
+* `jumpserver_mysql_user_pass`: MySQL user account password.
 * `jumpserver_mysql_path`: Specify the MySQL data directory.
 * `jumpserver_mysql_port_mysqld`: MySQL instance listen port.
 * `jumpserver_mysql_mailto`: MySQL report mail recipient.
@@ -143,6 +144,7 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_redis_port: '6379'
     jumpserver_mysql_dept: true
     jumpserver_mysql_sa_pass: 'changeme'
+    jumpserver_mysql_user_pass: 'changeme'
     jumpserver_mysql_path: '{{ jumpserver_path }}'
     jumpserver_mysql_port_mysqld: '3306'
     jumpserver_mysql_mailto: 'somebody@example.com'
