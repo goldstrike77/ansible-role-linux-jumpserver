@@ -29,10 +29,11 @@ jumpserver_mysql_user_pass: 'password' # MySQL user account password.
 jumpserver_mysql_path: '{{ jumpserver_path }}' # Specify the MySQL data directory.
 jumpserver_mysql_port_mysqld: '3306' # MySQL instance listen port.
 jumpserver_mysql_mailto: 'somebody@example.com' # MySQL report mail recipient.
+jumpserver_mysql_backupset_encryptkey: 'eMEVKiBd0HwByKfqv52EE8rmMMa2zg1i' # BackupSet encryption key, Generate by [openssl rand -base64 24].
 jumpserver_mysql_backupset_arg:
   life: '604800' # Lifetime of the latest full backup in seconds.
   keep: '2' # The number of full backups (and its incrementals) to keep.
-  encryptkey: 'eMEVKiBd0HwByKfqv52EE8rmMMa2zg1i' # BackupSet encryption key, Generate by [openssl rand -base64 24].
+  encryptkey: '{{ jumpserver_mysql_backupset_encryptkey }}' 
 jumpserver_mysql_bu_dbs_arg: # JumpServer Database Variables.
   - dbs: 'jumpserver'
     user: 'jumpserver'

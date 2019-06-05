@@ -72,9 +72,8 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_mysql_path`: Specify the MySQL data directory.
 * `jumpserver_mysql_port_mysqld`: MySQL instance listen port.
 * `jumpserver_mysql_mailto`: MySQL report mail recipient.
-* `jumpserver_mysql_backupset_arg.life`: Lifetime of the latest full backup in seconds.
-* `jumpserver_mysql_backupset_arg.keep`: The number of full backups (and its incrementals) to keep.
-* `jumpserver_mysql_backupset_arg.encryptkey`: BackupSet encryption key.
+* `jumpserver_mysql_backupset_encryptkey`: BackupSet encryption key, Generate by [openssl rand -base64 24].
+* `jumpserver_mysql_backupset_arg`: MySQL backup parameters.
 * `jumpserver_mysql_bu_dbs_arg`: JumpServer Database Variables.
 
 ##### NGinx parameters
@@ -148,15 +147,16 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_mysql_path: '{{ jumpserver_path }}'
     jumpserver_mysql_port_mysqld: '3306'
     jumpserver_mysql_mailto: 'somebody@example.com'
+    jumpserver_mysql_backupset_encryptkey: 'eMEVKiBd0HwByKfqv52EE8rmMMa2zg1i'
     jumpserver_mysql_backupset_arg:
       life: '604800'
       keep: '2'
-      encryptkey: 'eMEVKiBd0HwByKfqv52EE8rmMMa2zg1i'
+      encryptkey: '{{ jumpserver_mysql_backupset_encryptkey }}'
     jumpserver_mysql_bu_dbs_arg:
       - dbs: 'jumpserver'
         user: 'jumpserver'
         host: '127.0.0.1'
-        pass: 'changeme'
+        pass: '{{ jumpserver_mysql_user_pass }}'
         priv: 'ALL'
     jumpserver_ngx_dept: true
     jumpserver_ngx_site_path: '/{{ jumpserver_path }}/nginx_site'
