@@ -84,7 +84,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_ngx_block_string`: Enables or disables block includes Exploits / File injections / Spam / SQL injections.
 * `jumpserver_ngx_compress`: Enables or disables compression.
 * `jumpserver_ngx_domain`: Defines domain name.
-* `jumpserver_ngx_pagespeed`: Enables or disables pagespeed modules.
 * `jumpserver_ngx_port_http`: NGinx HTTP listen port.
 * `jumpserver_ngx_port_https`: NGinx HTTPs listen port.
 * `jumpserver_ngx_ssl_protocols`: intermediate or modern, defines SSL protocol profile.
@@ -166,7 +165,6 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_ngx_block_string: false
     jumpserver_ngx_compress: false
     jumpserver_ngx_domain: 'jump.example.com'
-    jumpserver_ngx_pagespeed: false
     jumpserver_ngx_port_http: '80'
     jumpserver_ngx_port_https: '443'
     jumpserver_ngx_ssl_protocols: 'modern'

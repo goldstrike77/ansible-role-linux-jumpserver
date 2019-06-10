@@ -90,7 +90,6 @@ dependencies:
       ngx_block_string: '{{ jumpserver_ngx_block_string }}'
       ngx_compress: '{{ jumpserver_ngx_compress }}'
       ngx_domain: '{{ jumpserver_ngx_domain }}'
-      ngx_pagespeed: '{{ jumpserver_ngx_pagespeed }}'
       ngx_port_http: '{{ jumpserver_ngx_port_http }}'
       ngx_port_https: '{{ jumpserver_ngx_port_https }}'
       ngx_ssl_protocols: '{{ jumpserver_ngx_ssl_protocols }}'
