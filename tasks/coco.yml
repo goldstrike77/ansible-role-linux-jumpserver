@@ -23,6 +23,14 @@
   retries: 3
   delay: 5
 
+- name: Creating Coco key exchange folder
+  file:
+    dest: '{{ jumpserver_path }}/coco-{{ jumpserver_version }}/data/keys'
+    state: 'directory'
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+
 - name: Coco systemd service file transfer
   template:
     src: 'coco.service.j2'
