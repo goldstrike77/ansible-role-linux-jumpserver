@@ -97,6 +97,8 @@ dependencies:
       ngx_site_path: '{{ jumpserver_ngx_site_path }}'
       ngx_logs_path: '{{ jumpserver_ngx_logs_path }}'
       ngx_client_max_body_size: '{{ jumpserver_ngx_client_max_body_size }}'
+      ngx_proxy_read_timeout: '{{ jumpserver_ngx_proxy_read_timeout }}'
+      ngx_proxy_send_timeout: '{{ jumpserver_ngx_proxy_send_timeout }}'
       ngx_allow_methods:
         - 'POST'
         - 'PUT'

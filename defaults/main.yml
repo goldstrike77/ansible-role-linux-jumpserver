@@ -54,6 +54,8 @@ jumpserver_ngx_port_https: '443' # NGinx HTTPs listen port.
 jumpserver_ngx_ssl_protocols: 'modern' # intermediate or modern, defines SSL protocol profile.
 jumpserver_ngx_version: 'extras' # extras or standard
 jumpserver_ngx_client_max_body_size: '50m' # The maximum allowed size of the client request body.
+jumpserver_ngx_proxy_read_timeout: '120' # Defines a timeout for reading a response from the proxied server.
+jumpserver_ngx_proxy_send_timeout: '120' # Sets a timeout for transmitting a request to the proxied server.
 
 # Tomcat parameters #
 jumpserver_tomcat_dept: true # A boolean value, whether installs Apache Tomcat.

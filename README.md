@@ -89,6 +89,9 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_ngx_ssl_protocols`: intermediate or modern, defines SSL protocol profile.
 * `jumpserver_ngx_version`: extras or standard
 * `jumpserver_ngx_client_max_body_size`: The maximum allowed size of the client request body.
+* `jumpserver_ngx_proxy_read_timeout`: Defines a timeout for reading a response from the proxied server.
+* `jumpserver_ngx_proxy_send_timeout`: Sets a timeout for transmitting a request to the proxied server.
+
 
 ##### Tomcat parameters
 * `jumpserver_tomcat_dept`: A boolean value, whether installs Apache Tomcat.
@@ -170,6 +173,8 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_ngx_ssl_protocols: 'modern'
     jumpserver_ngx_version: 'extras'
     jumpserver_ngx_client_max_body_size: '50m'
+    jumpserver_ngx_proxy_read_timeout: '120'
+    jumpserver_ngx_proxy_send_timeout: '120'
     jumpserver_tomcat_dept: true
     jumpserver_tomcat_port_http: '8080'
     jumpserver_tomcat_path: '{{ jumpserver_path }}'
