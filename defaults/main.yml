@@ -5,9 +5,9 @@ jumpserver_selinux: false # SELinux security policy.
 jumpserver_version: '1.4.10'  # Specify the JumpServer version.
 jumpserver_env: '/opt/py3' # Path to Python virtualenv directory to install into. 
 jumpserver_path: '/data' # This directory is used to store JumpServer server state.
-jumpserver_admin_pass: 'password' # A password for admin user.
-jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU' # Secret key[cat /dev/urandom | tr -dc A-HJ-NQ-Za-hj-km-np-z2-9 | head -c 50]
-jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP' # Bootstrap token [cat /dev/urandom | tr -dc A-HJ-NQ-Za-hj-km-np-z2-9 | head -c 16]
+jumpserver_admin_pass: 'changeme' # A password for admin user.
+jumpserver_secret_key: 'changeme' # Secret key[cat /dev/urandom | tr -dc A-HJ-NQ-Za-hj-km-np-z2-9 | head -c 50]
+jumpserver_bootstrap_token: 'changeme' # Bootstrap token [cat /dev/urandom | tr -dc A-HJ-NQ-Za-hj-km-np-z2-9 | head -c 16]
 
 # Listen port #
 jumpserver_port_arg:
@@ -18,18 +18,19 @@ jumpserver_port_arg:
 # Redis parameters #
 jumpserver_redis_dept: true # A boolean value, whether installs Redis.
 jumpserver_redis_path: '{{ jumpserver_path }}' # Specify the Redis data directory.
-jumpserver_redis_requirepass: 'password' # Authorization clients password.
+jumpserver_redis_requirepass: 'changeme' # Authorization clients password.
 jumpserver_redis_maxmemory: '128' # A memory usage limit to the specified amount in MB.
+jumpserver_redis_hosts: '127.0.0.1' # Redis hosts address.
 jumpserver_redis_port: '6379' # Redis listen port.
 
 # MySQL parameters #
 jumpserver_mysql_dept: true # A boolean value, whether installs MySQL.
-jumpserver_mysql_sa_pass: 'password' # MySQL root account password.
-jumpserver_mysql_user_pass: 'password' # MySQL user account password.
+jumpserver_mysql_sa_pass: 'changeme' # MySQL root account password.
+jumpserver_mysql_user_pass: 'changeme' # MySQL user account password.
 jumpserver_mysql_path: '{{ jumpserver_path }}' # Specify the MySQL data directory.
 jumpserver_mysql_port_mysqld: '3306' # MySQL instance listen port.
 jumpserver_mysql_mailto: 'somebody@example.com' # MySQL report mail recipient.
-jumpserver_mysql_backupset_encryptkey: 'eMEVKiBd0HwByKfqv52EE8rmMMa2zg1i' # BackupSet encryption key, Generate by [openssl rand -base64 24].
+jumpserver_mysql_backupset_encryptkey: 'changeme' # BackupSet encryption key, Generate by [openssl rand -base64 24].
 jumpserver_mysql_backupset_arg:
   life: '604800' # Lifetime of the latest full backup in seconds.
   keep: '2' # The number of full backups (and its incrementals) to keep.
@@ -54,8 +55,6 @@ jumpserver_ngx_port_https: '443' # NGinx HTTPs listen port.
 jumpserver_ngx_ssl_protocols: 'modern' # intermediate or modern, defines SSL protocol profile.
 jumpserver_ngx_version: 'extras' # extras or standard
 jumpserver_ngx_client_max_body_size: '50m' # The maximum allowed size of the client request body.
-jumpserver_ngx_proxy_read_timeout: '120' # Defines a timeout for reading a response from the proxied server.
-jumpserver_ngx_proxy_send_timeout: '120' # Sets a timeout for transmitting a request to the proxied server.
 
 # Tomcat parameters #
 jumpserver_tomcat_dept: true # A boolean value, whether installs Apache Tomcat.

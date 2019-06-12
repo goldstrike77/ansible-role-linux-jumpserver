@@ -47,7 +47,7 @@ HTTP_LISTEN_PORT: {{ jumpserver_port_arg.server }}
 
 # Use Redis as broker for celery and web socket
 # Redis配置
-REDIS_HOST: 127.0.0.1
+REDIS_HOST: {{ jumpserver_redis_hosts }}
 REDIS_PORT: {{ jumpserver_redis_port }}
 REDIS_PASSWORD: {{ jumpserver_redis_requirepass }}
 # REDIS_DB_CELERY: 3
