@@ -33,11 +33,11 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE: true
 # MySQL or postgres setting like:
 # 使用Mysql作为数据库
 DB_ENGINE: mysql
-DB_HOST: {{ jumpserver_mysql_bu_dbs_arg[0].host }}
-DB_PORT: {{ jumpserver_mysql_port_mysqld }}
-DB_USER: {{ jumpserver_mysql_bu_dbs_arg[0].user }}
-DB_PASSWORD: {{ jumpserver_mysql_bu_dbs_arg[0].pass }}
-DB_NAME: {{ jumpserver_mysql_bu_dbs_arg[0].dbs }}
+DB_HOST: '{{ jumpserver_mysql_bu_dbs_arg[0].host }}'
+DB_PORT: '{{ jumpserver_mysql_port_mysqld }}'
+DB_USER: '{{ jumpserver_mysql_bu_dbs_arg[0].user }}'
+DB_PASSWORD: '{{ jumpserver_mysql_bu_dbs_arg[0].pass }}'
+DB_NAME: '{{ jumpserver_mysql_bu_dbs_arg[0].dbs }}'
 
 # When Django start it will bind this host and port
 # ./manage.py runserver 127.0.0.1:8080
@@ -47,9 +47,9 @@ HTTP_LISTEN_PORT: {{ jumpserver_port_arg.server }}
 
 # Use Redis as broker for celery and web socket
 # Redis配置
-REDIS_HOST: {{ jumpserver_redis_hosts }}
-REDIS_PORT: {{ jumpserver_redis_port }}
-REDIS_PASSWORD: {{ jumpserver_redis_requirepass }}
+REDIS_HOST: '{{ jumpserver_redis_hosts }}'
+REDIS_PORT: '{{ jumpserver_redis_port }}'
+REDIS_PASSWORD: '{{ jumpserver_redis_requirepass }}'
 # REDIS_DB_CELERY: 3
 # REDIS_DB_CACHE: 4
 
