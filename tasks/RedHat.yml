@@ -24,7 +24,17 @@
   yum:
     name: '{{ ",".join(vars["jumpserver_dependent_packages"]) }}'
     state: 'present'
+    validate_certs: 'no'
+    disable_gpg_check: 'yes'
+    update_cache: 'yes'
+  when: not jumpserver_mysql_dept
+
+- name: Install the JumpServer dependent packages
+  yum:
+    name: '{{ ",".join(vars["jumpserver_dependent_packages"]) }}'
+    state: 'present'
     disablerepo: 'percona'
     validate_certs: 'no'
     disable_gpg_check: 'yes'
     update_cache: 'yes'
+  when: jumpserver_mysql_dept

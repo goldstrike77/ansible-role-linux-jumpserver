@@ -75,7 +75,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_mysql_mailto`: MySQL report mail recipient.
 * `jumpserver_mysql_backupset_encryptkey`: BackupSet encryption key, Generate by [openssl rand -base64 24].
 * `jumpserver_mysql_backupset_arg`: MySQL backup parameters.
-* `jumpserver_mysql_bu_dbs_arg`: JumpServer Database Variables.
+* `jumpserver_mysql_bu_dbs_arg`: JumpServer database variables.
 
 ##### NGinx parameters
 * `jumpserver_ngx_dept`: A boolean value, whether proxy web interface and API traffic using NGinx.
