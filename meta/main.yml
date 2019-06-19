@@ -71,7 +71,9 @@ dependencies:
       tomcat_jvm_xmn: '{{ jumpserver_tomcat_jvm_xmn }}'
       tomcat_jvm_xmx: '{{  jumpserver_tomcat_jvm_xmx }}'
       tomcat_custom_arg: '{{ jumpserver_tomcat_custom_arg }}'
-    when: jumpserver_tomcat_dept
+    when:
+      - jumpserver_tomcat_dept
+      - jumpserver_ass_windows
   - role: 'ansible-role-linux-mysql'
     vars:
       mysql_releases: 'Community'

@@ -30,7 +30,6 @@ jumpserver_dependent_packages:
   - 'gstreamer1-devel'
   - 'gstreamer1-plugins-base-devel'  
   - 'libwebp-devel'
-  - 'libwebp-devel'
   - 'libzip-devel'
   - 'mysql-devel'
   - 'openldap-clients'

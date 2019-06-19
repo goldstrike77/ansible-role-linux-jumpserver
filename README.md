@@ -45,6 +45,8 @@ The following list of supported the JumpServer releases:
 There are some variables in defaults/main.yml which can (Or needs to) be overridden:
 
 ##### General parameters
+* `jumpserver_ass_linux`: A boolean value, whether to enable Linux assets.
+* `jumpserver_ass_windows`: A boolean value, whether to enable Windows assets.
 * `jumpserver_selinux`: SELinux security policy.
 * `jumpserver_version`: Specify the JumpServer version.
 * `jumpserver_env`: Path to Python virtualenv directory to install into. 
@@ -127,6 +129,8 @@ Including an example of how to use your role (for instance, with variables passe
 You can also use the group_vars or the host_vars files for setting the variables needed for this role. File you should change: group_vars/all or host_vars/`group_name`
 
     jumpserver_version: '1.4.10'
+    jumpserver_ass_linux: true
+    jumpserver_ass_windows: true
     jumpserver_env: '/opt/py3'
     jumpserver_path: '/data'
     jumpserver_admin_password: 'changeme'
