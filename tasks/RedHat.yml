@@ -28,6 +28,10 @@
     disable_gpg_check: 'yes'
     update_cache: 'yes'
   when: not jumpserver_mysql_dept
+  register: yum_status
+  until: yum_status is succeeded
+  retries: 3
+  delay: 5
 
 - name: Install the JumpServer dependent packages
   yum:
@@ -38,3 +42,7 @@
     disable_gpg_check: 'yes'
     update_cache: 'yes'
   when: jumpserver_mysql_dept
+  register: yum_status
+  until: yum_status is succeeded
+  retries: 3
+  delay: 5

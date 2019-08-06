@@ -55,13 +55,18 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_secret_key`: Secret key.
 * `jumpserver_bootstrap_token`: Bootstrap token.
 
+##### Role dependencies
+* `jumpserver_redis_dept`: A boolean value, whether installs Redis.
+* `jumpserver_mysql_dept`: A boolean value, whether installs MySQL.
+* `jumpserver_ngx_dept`: A boolean value, whether proxy web interface and API traffic using NGinx.
+* `jumpserver_tomcat_dept`: A boolean value, whether installs Apache Tomcat.
+
 ##### Listen port
 * `jumpserver_port_arg.server`: JumpServer WEB / API network communication ports.
 * `jumpserver_port_arg.coco_httpd`: Coco HTTPD network communication ports.
 * `jumpserver_port_arg.coco_sshd`: Coco SSHD network communication ports.
 
 ##### Redis parameters
-* `jumpserver_redis_dept`: A boolean value, whether installs Redis.
 * `jumpserver_redis_path`: Specify the Redis data directory.
 * `jumpserver_redis_requirepass`: Authorization clients password.
 * `jumpserver_redis_maxmemory`: A memory usage limit to the specified amount in MB.
@@ -69,7 +74,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_redis_port`: Redis listen port.
 
 ##### MySQL parameters
-* `jumpserver_mysql_dept`: A boolean value, whether installs MySQL.
 * `jumpserver_mysql_sa_pass`: MySQL root account password.
 * `jumpserver_mysql_user_pass`: MySQL user account password.
 * `jumpserver_mysql_path`: Specify the MySQL data directory.
@@ -80,7 +84,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_mysql_bu_dbs_arg`: JumpServer database variables.
 
 ##### NGinx parameters
-* `jumpserver_ngx_dept`: A boolean value, whether proxy web interface and API traffic using NGinx.
 * `jumpserver_ngx_site_path`: Specify the NGinx site directory.
 * `jumpserver_ngx_logs_path`: Specify the NGinx logs directory.
 * `jumpserver_ngx_block_agents`: Enables or disables block unsafe User Agents.
@@ -94,7 +97,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `jumpserver_ngx_client_max_body_size`: The maximum allowed size of the client request body.
 
 ##### Tomcat parameters
-* `jumpserver_tomcat_dept`: A boolean value, whether installs Apache Tomcat.
 * `jumpserver_tomcat_port_http`: Tomcat HTTP connectors
 * `jumpserver_tomcat_path`: Specify the Tomcat working directory
 * `jumpserver_tomcat_disable_ipv6`: Deny IPv6 socket connect If IPv6 is available on the operating system
@@ -136,17 +138,19 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_admin_password: 'changeme'
     jumpserver_secret_key: 'zTl19IAMF1Zd9f9pbm4F6QammL4kXOI9MsDM6xfhwGgl9io2gU'
     jumpserver_bootstrap_token: 'fq25Q00WJMdmDoZP'
+    jumpserver_redis_dept: true
+    jumpserver_mysql_dept: true
+    jumpserver_ngx_dept: true
+    jumpserver_tomcat_dept: true
     jumpserver_port_arg:
       server: '18080'
       coco_httpd: '5000'
       coco_sshd: '2222'
-    jumpserver_redis_dept: true
     jumpserver_redis_path: '{{ jumpserver_path }}'
     jumpserver_redis_requirepass: 'changeme'
     jumpserver_redis_maxmemory: '128'
     jumpserver_redis_hosts: '127.0.0.1'
     jumpserver_redis_port: '6379'
-    jumpserver_mysql_dept: true
     jumpserver_mysql_sa_pass: 'changeme'
     jumpserver_mysql_user_pass: 'changeme'
     jumpserver_mysql_path: '{{ jumpserver_path }}'
@@ -163,7 +167,6 @@ You can also use the group_vars or the host_vars files for setting the variables
         host: '127.0.0.1'
         pass: '{{ jumpserver_mysql_user_pass }}'
         priv: 'ALL'
-    jumpserver_ngx_dept: true
     jumpserver_ngx_site_path: '/{{ jumpserver_path }}/nginx_site'
     jumpserver_ngx_logs_path: '/{{ jumpserver_path }}/nginx_logs'
     jumpserver_ngx_domain: 'jump.example.com'
@@ -176,7 +179,6 @@ You can also use the group_vars or the host_vars files for setting the variables
     jumpserver_ngx_ssl_protocols: 'modern'
     jumpserver_ngx_version: 'extras'
     jumpserver_ngx_client_max_body_size: '50m'
-    jumpserver_tomcat_dept: true
     jumpserver_tomcat_port_http: '8080'
     jumpserver_tomcat_path: '{{ jumpserver_path }}'
     jumpserver_tomcat_disable_ipv6: true

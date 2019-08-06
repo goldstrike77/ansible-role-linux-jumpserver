@@ -44,9 +44,10 @@
   template:
     src: 'coco_config.yml.j2'
     dest: '{{ jumpserver_path }}/coco-{{ jumpserver_version }}/config.yml'
+    backup: 'yes'
     owner: 'root'
     group: 'root'
-    mode: 0644
+    mode: '0644'
   register: coco_conf_update
   no_log: true
 

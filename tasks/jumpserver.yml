@@ -29,16 +29,17 @@
     dest: '/lib/systemd/system/jms.service'
     owner: 'root'
     group: 'root'
-    mode: 0644
+    mode: '0644'
   register: jms_systemd_update
 
 - name: JumpServer configuration file transfer
   template:
     src: 'jms_config.yml.j2'
     dest: '{{ jumpserver_path }}/jumpserver-{{ jumpserver_version }}/config.yml'
+    backup: 'yes'
     owner: 'root'
     group: 'root'
-    mode: 0644
+    mode: '0644'
   register: jms_conf_update
   no_log: true
 
