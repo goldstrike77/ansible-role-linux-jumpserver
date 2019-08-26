@@ -61,7 +61,7 @@ dependencies:
       redis_requirepass: '{{ jumpserver_redis_requirepass }}'
       redis_maxmemory: '{{ jumpserver_redis_maxmemory }}'
       redis_port: '{{ jumpserver_redis_port }}'
-    when: jumpserver_redis_dept
+    when: jumpserver_redis_dept | bool
   - role: 'ansible-role-linux-tomcat'
     vars:
       tomcat_port_http: '{{ jumpserver_tomcat_port_http }}'
@@ -72,8 +72,8 @@ dependencies:
       tomcat_jvm_xmx: '{{  jumpserver_tomcat_jvm_xmx }}'
       tomcat_custom_arg: '{{ jumpserver_tomcat_custom_arg }}'
     when:
-      - jumpserver_tomcat_dept
-      - jumpserver_ass_windows
+      - jumpserver_tomcat_dept | bool
+      - jumpserver_ass_windows | bool
   - role: 'ansible-role-linux-mysql'
     vars:
       mysql_releases: 'Community'
@@ -85,7 +85,7 @@ dependencies:
       mysql_mailto: '{{ jumpserver_mysql_mailto }}'
       mysql_backupset_arg: '{{ jumpserver_mysql_backupset_arg }}'
       mysql_bu_dbs_arg: '{{ jumpserver_mysql_bu_dbs_arg }}'
-    when: jumpserver_mysql_dept
+    when: jumpserver_mysql_dept | bool
   - role: 'ansible-role-linux-nginx'
     vars:
       ngx_block_agents: '{{ jumpserver_ngx_block_agents }}'
@@ -157,4 +157,4 @@ dependencies:
             - '  proxy_set_header Host $host;'
             - '  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;'
             - '}'
-    when: jumpserver_ngx_dept
+    when: jumpserver_ngx_dept | bool

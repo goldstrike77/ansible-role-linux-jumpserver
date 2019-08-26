@@ -1,4 +1,8 @@
 ---
+- name: Gathering service facts
+  service_facts:
+  register: services_state
+
 - name: Allow JumpServer service port
   firewalld:
     port: '{{ item.value }}/tcp'
@@ -7,3 +11,4 @@
     immediate: 'true'
     state: 'enabled'
   loop: '{{ jumpserver_port_arg|dict2items }}'
+  when: services_state.ansible_facts.services["firewalld.service"].state == 'running'

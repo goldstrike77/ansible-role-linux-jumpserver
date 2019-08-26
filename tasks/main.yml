@@ -32,11 +32,11 @@
 
 - name: Guacamole operation
   include: 'guacamole.yml'
-  when: jumpserver_ass_windows
+  when: jumpserver_ass_windows | bool
 
 - name: Coco operation
   include: 'coco.yml'
-  when: jumpserver_ass_linux
+  when: jumpserver_ass_linux | bool
 
 - name: Modify Admin Password
   shell:

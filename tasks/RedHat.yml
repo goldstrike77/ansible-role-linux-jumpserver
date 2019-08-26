@@ -27,7 +27,7 @@
     validate_certs: 'no'
     disable_gpg_check: 'yes'
     update_cache: 'yes'
-  when: not jumpserver_mysql_dept
+  when: not jumpserver_mysql_dept | bool
   register: yum_status
   until: yum_status is succeeded
   retries: 3
@@ -41,7 +41,7 @@
     validate_certs: 'no'
     disable_gpg_check: 'yes'
     update_cache: 'yes'
-  when: jumpserver_mysql_dept
+  when: jumpserver_mysql_dept | bool
   register: yum_status
   until: yum_status is succeeded
   retries: 3
