@@ -22,7 +22,7 @@
 
 - name: Install the JumpServer dependent packages
   yum:
-    name: '{{ ",".join(vars["jumpserver_dependent_packages"]) }}'
+    name: '{{ jumpserver_dependent_packages }}'
     state: 'present'
     validate_certs: 'no'
     disable_gpg_check: 'yes'
