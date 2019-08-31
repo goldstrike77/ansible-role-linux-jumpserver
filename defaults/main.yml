@@ -49,8 +49,8 @@ jumpserver_mysql_bu_dbs_arg: # JumpServer Database Variables.
     priv: 'ALL'
 
 # NGinx parameters #
-jumpserver_ngx_site_path: '{{ jumpserver_path }}/nginx_site' # Specify the NGinx site directory.
-jumpserver_ngx_logs_path: '{{ jumpserver_path }}/nginx_logs' # Specify the NGinx logs directory.
+jumpserver_ngx_site_path: '{{ jumpserver_path }}/nginx/site' # Specify the NGinx site directory.
+jumpserver_ngx_logs_path: '{{ jumpserver_path }}/nginx/logs' # Specify the NGinx logs directory.
 jumpserver_ngx_block_agents: false # Enables or disables block unsafe User Agents.
 jumpserver_ngx_block_string: false # Enables or disables block includes Exploits / File injections / Spam / SQL injections.
 jumpserver_ngx_compress: false # Enables or disables compression.
