@@ -49,6 +49,8 @@ jumpserver_dependent_packages:
   - 'telnet'
   - 'tk-devel'
   - 'uuid-devel'
+  - 'libselinux-utils'
+  - 'policycoreutils-python'
 
 guacamole_dependent_packages:
   - 'freerdp1.2-1.2.0-12.el7.x86_64.rpm'

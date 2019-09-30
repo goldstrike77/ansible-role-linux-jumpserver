@@ -47,7 +47,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 ##### General parameters
 * `jumpserver_ass_linux`: A boolean value, whether to enable Linux assets.
 * `jumpserver_ass_windows`: A boolean value, whether to enable Windows assets.
-* `jumpserver_selinux`: SELinux security policy.
 * `jumpserver_version`: Specify the JumpServer version.
 * `jumpserver_env`: Path to Python virtualenv directory to install into. 
 * `jumpserver_path`: This directory is used to store JumpServer server state.
@@ -109,7 +108,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 There are some variables in vars/main.yml:
 
 ## Dependencies
-- Ansible versions > 2.6 are supported.
+- Ansible versions >= 2.8 are supported.
 - [NGinx](https://github.com/goldstrike77/ansible-role-linux-nginx.git)
 - [Tomcat](https://github.com/goldstrike77/ansible-role-linux-tomcat.git) 
 - [MySQL](https://github.com/goldstrike77/ansible-role-linux-mysql.git)

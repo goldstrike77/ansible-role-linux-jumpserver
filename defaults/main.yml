@@ -3,7 +3,6 @@
 jumpserver_is_install: false # A boolean value, whether install the JumpServer.
 jumpserver_ass_linux: true # A boolean value, whether to enable Linux assets.
 jumpserver_ass_windows: true # A boolean value, whether to enable Windows assets.
-jumpserver_selinux: false # SELinux security policy.
 jumpserver_version: '1.4.10'  # Specify the JumpServer version.
 jumpserver_env: '/opt/py3' # Path to Python virtualenv directory to install into. 
 jumpserver_path: '/data' # This directory is used to store JumpServer server state.
