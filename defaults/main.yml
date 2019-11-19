@@ -57,7 +57,7 @@ jumpserver_ngx_domain: 'jump.example.com' # Defines domain name.
 jumpserver_ngx_port_http: '80' # NGinx HTTP listen port.
 jumpserver_ngx_port_https: '443' # NGinx HTTPs listen port.
 jumpserver_ngx_ssl_protocols: 'modern' # intermediate or modern, defines SSL protocol profile.
-jumpserver_ngx_version: 'extras' # extras or standard
+jumpserver_ngx_version: 'standard' # extras or standard
 jumpserver_ngx_client_max_body_size: '50m' # The maximum allowed size of the client request body.
 
 # Tomcat parameters #
